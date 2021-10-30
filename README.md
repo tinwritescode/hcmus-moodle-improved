@@ -6,6 +6,11 @@
 
 ### Screenshot
 
+![popup image](/images/popup.jpg)
+![not-set](/images/not-set.jpg)
+![login-set](/images/set.jpg)
+![wrong-login](/images/wrong-login.jpg)
+
 ### Installation
 
 Truy cập [chrome://extensions/](chrome://extensions/) và chọn "Load
