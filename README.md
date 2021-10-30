@@ -2,7 +2,10 @@
 
 ### Features
 
-- Tự động đăng nhập Moodle (trang hỗ trợ: https://courses.ctda.hcmus.edu.vn/)
+- Tự động đăng nhập Moodle 
+- Trang hỗ trợ: 
+  - https://courses.ctda.hcmus.edu.vn/
+  - https://courses.hcmus.edu.vn
 
 ### Screenshot
 
