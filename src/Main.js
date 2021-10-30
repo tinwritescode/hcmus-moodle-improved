@@ -14,10 +14,7 @@ chrome.storage.sync.get(["autoLogin"], function (data) {
     console.log(data);
 
     // Login failed, username or password is not valid
-    if (
-      $(".alert.alert-danger").length > 0 ||
-      $("#username")[0].value?.length == 0
-    ) {
+    if ($(".alert.alert-danger").length > 0) {
       notify(
         "Thông tin hiện tại không đúng, click vào popup để set thông tin đăng nhập của bạn!"
       );
