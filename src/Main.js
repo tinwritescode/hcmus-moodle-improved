@@ -1,3 +1,5 @@
+const AUTO_LOGIN_TIME = 1000; // miliseconds
+
 // autoLogin option must be enable
 chrome.storage.sync.get(["autoLogin"], function (data) {
   if (!data.autoLogin) {
@@ -33,7 +35,7 @@ chrome.storage.sync.get(["autoLogin"], function (data) {
         $("#password")[0].value = data.password;
         $("#login")[0].submit(); // loginForm
       }
-    }, 2000);
+    }, AUTO_LOGIN_TIME);
   });
 });
 
@@ -45,9 +47,9 @@ function notify(message) {
   </div>`);
 
   // Notify and auto remove
-  setTimeout(function () {
-    $("#shortNotify").remove();
-  }, 1000);
+  // setTimeout(function () {
+  //   $("#shortNotify").remove();
+  // }, 1000);
 }
 
 function removeLoginData() {
