@@ -27,8 +27,8 @@ chrome.storage.sync.get(["autoLogin"], function (data) {
 
     // append to body
 
-    notify("Tự động đăng nhập sau 2s!");
-    // Notify and remove after 2s
+    notify(`Tự động đăng nhập sau ${AUTO_LOGIN_TIME / 1000}s!`);
+    //
     setTimeout(function () {
       if (data.username && data.password) {
         $("#username")[0].value = data.username;
@@ -47,9 +47,9 @@ function notify(message) {
   </div>`);
 
   // Notify and auto remove
-  // setTimeout(function () {
-  //   $("#shortNotify").remove();
-  // }, 1000);
+  setTimeout(function () {
+    $("#shortNotify").remove();
+  }, 1000);
 }
 
 function removeLoginData() {
