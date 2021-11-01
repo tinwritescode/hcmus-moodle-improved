@@ -1,7 +1,7 @@
 const AUTO_LOGIN_TIME = 1000; // miliseconds
 
 // autoLogin option must be enable
-chrome.storage.sync.get(["autoLogin"], function (data) {
+chrome.storage.local.get(["autoLogin"], function (data) {
   if (!data.autoLogin) {
     notify(
       `Auto login đang tắt, bạn click vào icon trên extension bar để thiết lập nhé.`
@@ -10,7 +10,7 @@ chrome.storage.sync.get(["autoLogin"], function (data) {
   }
 
   // check if chrome storage have username and password value
-  chrome.storage.sync.get(["username", "password"], function (data) {
+  chrome.storage.local.get(["username", "password"], function (data) {
     console.log(data);
 
     // Login failed, username or password is not valid
@@ -51,7 +51,7 @@ function notify(message) {
 
 function removeLoginData() {
   // remove username and password key from chrome storage
-  chrome.storage.sync.remove(["username", "password"], function () {
+  chrome.storage.local.remove(["username", "password"], function () {
     console.log("username and password removed");
   });
 }

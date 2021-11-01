@@ -4,7 +4,7 @@ const autoLogin = $("#autoLogin");
 
 $(function () {
   // check if chrome storage have username and password
-  chrome.storage.sync.get(
+  chrome.storage.local.get(
     ["username", "password", "autoLogin"],
     function (result) {
       if (result.username && result.password) {
@@ -24,7 +24,7 @@ username.change(() => {
   setAlert(`Đã lưu username: ${username.val()}`);
 
   // save user name to chrome storage
-  chrome.storage.sync.set({ username: username.val() }, () => {
+  chrome.storage.local.set({ username: username.val() }, () => {
     console.log("Username saved");
   });
 });
@@ -35,7 +35,7 @@ password.change(() => {
   setAlert(`Đã lưu password`);
 
   // save password to chrome storage
-  chrome.storage.sync.set({ password: password.val() }, () => {
+  chrome.storage.local.set({ password: password.val() }, () => {
     console.log("Password saved");
   });
 });
@@ -46,7 +46,7 @@ autoLogin.change(() => {
   setAlert(`Đã lưu tùy chọn auto login: ${autoLogin.is(":checked")}`);
 
   // save auto login to chrome storage
-  chrome.storage.sync.set({ autoLogin: autoLogin.is(":checked") }, () => {
+  chrome.storage.local.set({ autoLogin: autoLogin.is(":checked") }, () => {
     console.log("Auto login saved");
   });
 });
