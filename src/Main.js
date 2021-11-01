@@ -47,7 +47,7 @@ function notify(message) {
   setTimeout(function () {
     $("#shortNotify").remove();
   }, 1000);
-// }
+}
 
 // function removeLoginData() {
 //   // remove username and password key from chrome storage
