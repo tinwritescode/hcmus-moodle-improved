@@ -18,7 +18,7 @@ chrome.storage.sync.get(["autoLogin"], function (data) {
       notify(
         "Thông tin hiện tại không đúng, click vào popup để set thông tin đăng nhập của bạn!"
       );
-      removeLoginData();
+      // removeLoginData();
       return;
     }
 
@@ -47,11 +47,11 @@ function notify(message) {
   setTimeout(function () {
     $("#shortNotify").remove();
   }, 1000);
-}
+// }
 
-function removeLoginData() {
-  // remove username and password key from chrome storage
-  chrome.storage.sync.remove(["username", "password"], function () {
-    console.log("username and password removed");
-  });
-}
+// function removeLoginData() {
+//   // remove username and password key from chrome storage
+//   chrome.storage.sync.remove(["username", "password"], function () {
+//     console.log("username and password removed");
+//   });
+// }
