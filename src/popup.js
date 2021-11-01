@@ -2,67 +2,43 @@ const username = $("#username");
 const password = $("#password");
 const autoLogin = $("#autoLogin");
 
-$(function () {
-  // check if chrome storage have username and password
-  chrome.storage.local.get(
-    ["username", "password", "autoLogin"],
-    function (result) {
-      if (result.username && result.password) {
-        username.val(result.username);
-        password.val(result.password);
-        autoLogin.prop("checked", true);
-      }
+const STORAGE_SELECTOR = "[id]";
+let debounceTimer;
 
-      autoLogin.prop("checked", result.autoLogin);
+document.addEventListener("change", saveOnChange);
+document.addEventListener("input", saveOnChange);
+
+function saveOnChange(e) {
+  if (e.target.closest(STORAGE_SELECTOR)) {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(doSave, 100);
+  }
+}
+
+function doSave() {
+  console.log("Saved");
+  chrome.storage.sync.set({ autoSave: collectData() });
+}
+
+function loadFromStorage() {
+  chrome.storage.sync.get((data) => {
+    if (data.autoSave) data = data.autoSave;
+    for (const [id, value] of Object.entries(data)) {
+      const el = document.getElementById(id);
+      if (el) el[el.type === "checkbox" ? "checked" : "value"] = value;
     }
-  );
-});
-
-username.change(() => {
-  console.log("Username changed", username.val());
-
-  setAlert(`Đã lưu username: ${username.val()}`);
-
-  // save user name to chrome storage
-  chrome.storage.local.set({ username: username.val() }, () => {
-    console.log("Username saved");
   });
-});
+}
 
-password.change(() => {
-  console.log("Password changed", password.val());
+loadFromStorage();
 
-  setAlert(`Đã lưu password`);
+function doSave() {
+  chrome.storage.sync.set(collectData());
+}
 
-  // save password to chrome storage
-  chrome.storage.local.set({ password: password.val() }, () => {
-    console.log("Password saved");
-  });
-});
-
-autoLogin.change(() => {
-  console.log("Auto login changed", autoLogin.is(":checked"));
-
-  setAlert(`Đã lưu tùy chọn auto login: ${autoLogin.is(":checked")}`);
-
-  // save auto login to chrome storage
-  chrome.storage.local.set({ autoLogin: autoLogin.is(":checked") }, () => {
-    console.log("Auto login saved");
-  });
-});
-
-// helper functions
-function setAlert(text) {
-  $("#alert").remove();
-  console.log("alert", alert);
-  $("body").prepend(
-    `<div id="alert" class="p-2 bg-green-400 text-white rounded shadow my-2">${text}</div>`
-  );
-
-  // set alert text to "" after 3 seconds
-  setTimeout(() => {
-    $("#alert").remove();
-  }, 3000);
-
-  // jquery remove from dom
+function collectData() {
+  const data = {};
+  for (const el of document.querySelectorAll(STORAGE_SELECTOR))
+    data[el.id] = el.type === "checkbox" ? el.checked : el.value;
+  return data;
 }
