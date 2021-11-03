@@ -17,9 +17,8 @@ chrome.storage.sync.get(["autoLogin"], function (data) {
     const content = $(".alert.alert-danger").text();
 
     if (
-      ($(".alert.alert-danger").length > 0 &&
-        content.includes("Your session")) ||
-      content.includes("Phiên")
+      ($(".alert.alert-danger").length > 0 && content.includes("Invalid")) ||
+      content.includes("Không")
     ) {
       notify(
         "Thông tin hiện tại không đúng, click vào popup để set thông tin đăng nhập của bạn!"
