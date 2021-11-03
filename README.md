@@ -1,4 +1,4 @@
-### HCMUS Moodle Improved
+# HCMUS Moodle Improved
 
 ### Features
 
