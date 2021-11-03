@@ -18,8 +18,8 @@ chrome.storage.sync.get(["autoLogin"], function (data) {
 
     if (
       ($(".alert.alert-danger").length > 0 &&
-        !content.includes("Your session")) ||
-      !content.includes("Phiên")
+        content.includes("Your session")) ||
+      content.includes("Phiên")
     ) {
       notify(
         "Thông tin hiện tại không đúng, click vào popup để set thông tin đăng nhập của bạn!"
