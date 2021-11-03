@@ -14,10 +14,17 @@ chrome.storage.sync.get(["autoLogin"], function (data) {
     console.log(data);
 
     // Login failed, username or password is not valid
-    if ($(".alert.alert-danger").length > 0) {
+    const content = $(".alert.alert-danger").text();
+
+    if (
+      ($(".alert.alert-danger").length > 0 &&
+        !content.includes("Your session")) ||
+      !content.includes("Phiên")
+    ) {
       notify(
         "Thông tin hiện tại không đúng, click vào popup để set thông tin đăng nhập của bạn!"
       );
+      console.log($(".alert.alert-danger").text());
       // removeLoginData();
       return;
     }
