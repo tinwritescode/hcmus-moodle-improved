@@ -2,7 +2,17 @@ const TOPIC_HEIGHT = "500px";
 // create a css class and add it to the html
 
 $(document).ready(function () {
-	$(".topics").css({ display: "grid", gridTemplateColumns: "repeat(4, 1fr)" });
+	// if the screen is less than or equal to sm screen, then display grid template columns of repeat(1, 1fr)
+	if ($(window).width() <= 768) {
+		$(".topics").css({ display: "grid", gridTemplateColumns: "repeat(1, 1fr)" });
+	}
+	// if the screen is less than or equal to md screen, then display grid template columns of repeat(2, 1fr)
+	else if ($(window).width() <= 992) {
+		$(".topics").css({ display: "grid", gridTemplateColumns: "repeat(2, 1fr)" });
+	}
+	else {
+		$(".topics").css({ display: "grid", gridTemplateColumns: "repeat(4, 1fr)" });
+	}
 
 	$("ul.section").css("overflow-y", "scroll").css("height", TOPIC_HEIGHT);
 
