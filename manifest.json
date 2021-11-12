@@ -1,5 +1,5 @@
 {
-  "name": "HCMUS Moodle Enhanced",
+  "name": "HCMUS Moodle Improved",
   "description": "",
   "version": "1.2.0",
   "manifest_version": 2,
@@ -30,18 +30,18 @@
         "src/jquery.js",
         "src/courses-page.js"
       ]
-    }, 
-		{
-			"matches": [
-				"https://courses.ctda.hcmus.edu.vn/",
-				"https://courses.ctda.hcmus.edu.vn/?*",
-				"https://courses.hcmus.edu.vn/",
-				"https://courses.hcmus.edu.vn/?*"
-			],
-			"js": [
-				"src/jquery.js",
-				"src/home-page.js"
-			]
-		}
+    },
+    {
+      "matches": [
+        "https://courses.ctda.hcmus.edu.vn/",
+        "https://courses.ctda.hcmus.edu.vn/?*",
+        "https://courses.hcmus.edu.vn/",
+        "https://courses.hcmus.edu.vn/?*"
+      ],
+      "js": [
+        "src/jquery.js",
+        "src/home-page.js"
+      ]
+    }
   ]
 }
