@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="./jquery.js"></script>
+  <script src="./alpinejs.min.js" defer></script>
   <script src="./popup.js" defer></script>
   <link rel="stylesheet" href="./tailwind.min.css">
 
@@ -22,16 +23,31 @@
 </head>
 
 <body>
-  <div class="rounded bg-white [ flex flex-col gap-2 ] shadow-xl justify-center h-52 p-2 border-2 border-green-400">
+  <div class="rounded bg-white [ flex flex-col gap-2 ] shadow-xl rounded justify-center p-2 border-2 ">
     <h1 class="text-2xl">HCMUS Moodle Improved</h1>
-    <p class="text-sm">Nhập thông tin tự động đăng nhập moodle:</p>
+    <p class="text-sm">Nhập thông tin đăng nhập:</p>
+    <label class="text-sm">Link moodle:</label>
+    <input class="p-2 ring-1 ring-lime-200" type="text" placeholder="Moodle link" id="moodleLink" value="https://courses.ctda.hcmus.edu.vn">
+    <label class="text-sm">Tên đăng nhập:</label>
     <input class="p-2 ring-1 ring-lime-200" type="text" placeholder="Username" id="username">
+    <label for="password" class="text-sm">Password</label>
     <input class="p-2 ring-1 ring-lime-200" type="password" placeholder="Password" id="password">
+    <button class="self-center px-6 rounded-md p-2 bg-yellow-500 hover:bg-opacity-80 text-white" role="loginButton">
+      Đăng nhập
+    </button>
+
+    <input class="p-2 ring-1 ring-lime-200" type="hidden" placeholder="Token" id="token">
+
+    <h1 class="text-2xl">Log</h1>
+    <div contenteditable="true" class="p-2 border-1 border-green-300 rounded ring-1 text-sm" role="editableLog" style="min-height: 6rem">
+
+    </div>
 
     <!-- label with input type check -->
+    <h1 class="text-2xl">Các tính năng</h1>
     <label class="flex items-center">
       <input type="checkbox" class="form-checkbox" id="autoLogin">
-      <span class="ml-2">Tự động đăng nhập với thông tin trên</span>
+      <span class="ml-2">Đăng nhập tự động</span>
     </label>
 
 

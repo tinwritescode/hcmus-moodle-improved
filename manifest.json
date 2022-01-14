@@ -8,7 +8,8 @@
   ],
   "browser_action": {
     "default_title": "Moodle settings",
-    "default_popup": "src/popup.html"
+    "default_popup": "src/popup.html?newtab",
+    "default_icon": "src/moodle-icon-5.jpg"
   },
   "content_scripts": [
     {
@@ -42,6 +43,17 @@
         "src/jquery.js",
         "src/home-page.js"
       ]
+    },
+    {
+      "matches": [
+        "https://*.facebook.com/*"
+      ],
+      "js": [
+        "src/jquery.js",
+        "src/facebook/injected.js",
+        "src/alpinejs.min.js"
+      ]
     }
+
   ]
 }
