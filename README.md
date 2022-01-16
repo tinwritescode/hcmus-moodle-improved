@@ -4,6 +4,7 @@
 
 - Tự động đăng nhập Moodle 
 - Giao diện trang môn học dễ sử dụng hơn
+- Đính deadline moodle lên facrbook, để vừa lướt fb vừa theo dõi deadline
 
 
 ### Trang hỗ trợ: 
@@ -19,6 +20,10 @@
 
 #### Giao diện trang môn học
 ![course](/images/course.png)
+
+#### Facebook
+![fb](/images/fb.png)
+
 
 ### Installation
 
