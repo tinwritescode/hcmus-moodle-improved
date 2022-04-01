@@ -31,6 +31,9 @@ chrome.storage.sync.get(["autoLogin"], function (data) {
     // append to body
 
     notify(`Tự động đăng nhập sau ${AUTO_LOGIN_TIME / 1000}s!`);
+
+    //prevent user to click after data submit
+    $("#loginbtn").hide();
     //
     setTimeout(function () {
       if (data.username && data.password) {
