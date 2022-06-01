@@ -27,7 +27,7 @@ chrome.storage.sync.get(["token", "moodleLink"], function (data) {
     console.log(data)
     if(!dialog || !data || data?.length == 0) return
 
-    const items = data.map((item) => {
+    const items = [data].map((item) => {
       return `
       <div class="moodle-dialog-item" style="border-bottom: 1px #ccc solid; padding: .25rem; font-size: 1.1rem; width: 100%;">
         <a href="${item.url}" target="_blank" style="">
